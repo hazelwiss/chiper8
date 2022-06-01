@@ -1,0 +1,44 @@
+ALU operation encoding:
+
+    000: mov
+    001: add
+    010: sub
+    011: shr
+    100: shl
+
+instructions encoding:
+
+    - Instructions are always 2 bytes long.
+
+    these are the ways instructions can be decoded:
+    where o: opcode, a: alu opcode, d: dest, n: immediate, s: source, a: adr register, r: register
+
+    type 1:
+    [oooo dddd ssss 0aaa]
+    [oooo dddd nnnn 1aaa]
+    type 2:
+    [oooo rrrr aaaa nnnn]
+
+
+    these are the different operation codes;
+
+        0000: ALU       (type 1) ;   Perform ALU arithmetic on two registers.
+        0001: LOAD      (type 2) ;   Loads a value from memory and puts it into a register.
+        0010: STORE     (type 2) ;   Stores a value from a register into an address in memory.
+
+    these are all of the instructions:
+
+    [0000 dddd ssss 0000] mov d, s
+    [0000 dddd ssss 0001] add d, s
+    [0000 dddd ssss 0010] sub d, s
+    [0000 dddd ssss 0011] shr d, s
+    [0000 dddd ssss 0100] shl d, s
+
+    [0000 dddd nnnn 1000] mov d, n
+    [0000 dddd nnnn 1001] add d, n
+    [0000 dddd nnnn 1010] sub d, n  
+    [0000 dddd nnnn 1011] shr d, n
+    [0000 dddd nnnn 1100] shl d, n
+
+
+

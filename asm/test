@@ -1,0 +1,2 @@
+mov r0, $Fh
+mov r1, r0
